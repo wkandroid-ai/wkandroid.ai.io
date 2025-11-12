@@ -1,37 +1,16 @@
-## Welcome to GitHub Pages
+## WK1995 · AI × Android
 
-You can use the [editor on GitHub](https://github.com/wk1995/wk1995.github.io/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+欢迎来到我的写作实验室。我将这里作为备忘录，记录端侧 AI、Android 工程实践和设计思考。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 写作主题
 
-### Markdown
+- **AI 落地**：模型优化、推理部署、MLOps 与端云协同。
+- **Android 工程**：Jetpack Compose、性能监控、Gradle 自动化。
+- **用户体验**：如何让 AI 助手值得信赖、值得持续使用。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 最新文章
 
-```markdown
-Syntax highlighted code block
+- [AI on Android：端侧推理落地路线图](../blog/ai-on-android-roadmap.html)
+- [设计有温度的 AI 体验](../blog/designing-ai-experiences.html)
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/wk1995/wk1995.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+若想抢先阅读草稿或提出话题，欢迎通过 [wk@example.com](mailto:wk@example.com) 联系我。谢谢驻足。

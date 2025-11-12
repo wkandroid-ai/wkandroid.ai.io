@@ -1,4 +1,353 @@
-<html>
-<head>我的page-test</head>
-<body>this is my project<body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WK1995 · AI x Android</title>
+  <meta name="description" content="个人主页，聚焦人工智能与 Android 开发，记录我的项目、研究和博客文章。">
+  <style>
+    :root {
+      --bg: #0c1018;
+      --fg: #f2f5ff;
+      --fg-muted: #b0b8cc;
+      --primary: #6c63ff;
+      --accent: #1e90ff;
+      --card-bg: rgba(17, 23, 34, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top right, #1a1f2f, #090c13 65%);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      padding: 5rem 0 4rem;
+    }
+    .container {
+      width: min(100%, 1080px);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0 0.5rem;
+    }
+    nav .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    nav a {
+      color: var(--fg-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      color: var(--fg);
+    }
+    .hero {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.6rem);
+      line-height: 1.15;
+      margin: 0 0 1.25rem;
+    }
+    .hero-lead {
+      max-width: 640px;
+      color: var(--fg-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--fg);
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 12px 24px rgba(108, 99, 255, 0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cta:hover,
+    .cta:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(108, 99, 255, 0.35);
+    }
+    .cta.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      box-shadow: none;
+    }
+    section {
+      padding: 4.5rem 0;
+    }
+    section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin: 0 0 2.5rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1.75rem;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.75rem;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(108, 99, 255, 0.5);
+    }
+    .card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.25rem;
+    }
+    .card p {
+      margin: 0 0 1.25rem;
+      color: var(--fg-muted);
+      font-size: 0.98rem;
+    }
+    .card a {
+      margin-top: auto;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .tags {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .tag {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+    .blog-preview article {
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .blog-preview h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.25rem;
+    }
+    .blog-preview time {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      margin-bottom: 0.65rem;
+    }
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+      color: var(--fg-muted);
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: var(--fg);
+      text-decoration: none;
+      margin: 0 0.75rem;
+    }
+    @media (max-width: 720px) {
+      nav a {
+        margin-left: 1rem;
+      }
+      header {
+        padding-top: 3.5rem;
+      }
+      section {
+        padding: 3.5rem 0;
+      }
+      .card {
+        min-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <span class="brand">WK1995</span>
+      <div>
+        <a href="#about">关于我</a>
+        <a href="#projects">项目</a>
+        <a href="#blog">博客</a>
+        <a href="mailto:wk@example.com">联系</a>
+      </div>
+    </nav>
+    <header>
+      <div class="hero">
+        <span class="hero-eyebrow">AI × Android 开发生态</span>
+        <h1>将智能体验带到移动端，让 AI 真正落地。</h1>
+        <p class="hero-lead">
+          我是文凯，一名 Android 工程师与 AI 实践者，专注于将机器学习能力嵌入应用中，打造端侧智能与云端协同的体验。
+          在这里记录我的项目、研究路线及落地实践。
+        </p>
+        <div class="hero-actions">
+          <a class="cta" href="#projects">探索项目</a>
+          <a class="cta secondary" href="#blog">阅读博客</a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <h2>关于与愿景</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>专注方向</h3>
+            <p>
+              端侧 AI 能力、跨端体验一致性、与云原生服务协同，是我当前关注的重点。
+              我相信真正优秀的移动应用，不仅需要良好的交互，还需要即时、智能与安全的数据处理能力。
+            </p>
+            <div class="tags">
+              <span class="tag">On-device ML</span>
+              <span class="tag">Jetpack</span>
+              <span class="tag">LLM Integration</span>
+              <span class="tag">MLOps</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>正在研究</h3>
+            <p>
+              · 大模型在移动端的裁剪与蒸馏策略<br>
+              · Android AI 功能的最佳体验模式<br>
+              · 生成式 AI 在生产力工具中的落地方案
+            </p>
+            <a href="https://github.com/wk1995" target="_blank" rel="noopener">查看 GitHub 项目 →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>精选项目</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Voyager Assistant</h3>
+            <p>
+              针对 Android 的个人 AI 助手，支持多模型推理，并结合 WorkManager 实现上下文持久化和离线能力。
+            </p>
+            <div class="tags">
+              <span class="tag">Android</span>
+              <span class="tag">Compose</span>
+              <span class="tag">LLM</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>EdgeVision Kit</h3>
+            <p>
+              轻量级端侧视觉推理组件，基于 MediaPipe 与 TensorFlow Lite，可快速集成到现有应用中处理手势与物体识别。
+            </p>
+            <div class="tags">
+              <span class="tag">TensorFlow Lite</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">CameraX</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>CloudLoop Studio</h3>
+            <p>
+              将云端训练流程封装为图形化操作，自动同步到移动端推理模型，支持版本管理与 A/B 测试。
+            </p>
+            <div class="tags">
+              <span class="tag">MLOps</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Gradle Plugin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="container">
+        <h2>最新博客</h2>
+        <div class="grid grid-2 blog-preview">
+          <article>
+            <time datetime="2025-09-15">2025.09.15</time>
+            <h3><a href="blog/ai-on-android-roadmap.html">AI on Android：端侧推理落地路线图</a></h3>
+            <p>
+              从模型裁剪、量化到 Jetpack Pipeline 的部署策略，梳理端侧 AI 应用的关键流程，并总结常见的性能陷阱。
+            </p>
+          </article>
+          <article>
+            <time datetime="2025-06-02">2025.06.02</time>
+            <h3><a href="blog/designing-ai-experiences.html">设计有温度的 AI 体验</a></h3>
+            <p>
+              探讨如何在 Android 应用中构建可信赖的智能助手，包括隐私保护、反馈机制与持续学习体系。
+            </p>
+          </article>
+        </div>
+        <a class="cta secondary" href="blog/index.html">查看全部文章</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 WK1995 · Inspired by the future of AI on Android</p>
+      <p>
+        <a href="https://github.com/wk1995" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:wk@example.com">wk@example.com</a>
+      </p>
+    </div>
+  </footer>
+</body>
 </html>
